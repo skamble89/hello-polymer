@@ -13,6 +13,7 @@
        :host {
         display: block;
       }
+      /* styles for paper-tabs*/
       
       paper-tab {
         color: #5da9dd;
@@ -20,12 +21,49 @@
           color: #b3b3b3;
         }
         --layout-flex-auto: {
-          flex: 0.1;
+          flex: 0.06;
         }
       }
       
       paper-tabs {
         --paper-tabs-selection-bar-color: #5da9dd
+      }
+      /*Styles for fields paper-listbox*/
+      
+      paper-listbox.field-list paper-item {
+        display: inline;
+        min-height: 15px;
+        margin: 10px;
+        --paper-item-focused-before: {
+          border-radius: 25px;
+        }
+        --paper-item-focused: {
+          border-radius: 25px;
+        }
+        --paper-item-selected-before: {
+          border-radius: 25px;
+        }
+        --paper-item-selected: {
+          border-radius: 25px;
+        }
+      }
+      
+      paper-listbox.field-list paper-item {
+        font-weight: 100;
+        --paper-item-selected: {
+          color: #fff;
+          background: #5caadb;
+        }
+      }
+      
+      paper-listbox.field-list {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        border: 1px solid #e1e6ed;
+        background: #fcfdff;
+        height: 288px;
+        padding: 0;
       }
     </style>
 
@@ -46,7 +84,7 @@
     <iron-pages selected="{{selected_tab}}">
       <iron-page></iron-page>
       <iron-page>
-        <paper-listbox>
+        <paper-listbox class="field-list">
           <paper-item>FICO-Score</paper-item>
           <paper-item>Account-Number</paper-item>
           <paper-item>Customer-Code</paper-item>
