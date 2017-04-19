@@ -1,0 +1,39 @@
+<link rel="import" href="../polymer/polymer.html">
+
+<!--
+`stats-component-v1`
+Stats component
+
+@demo demo/index.html 
+-->
+
+<dom-module id="stats-container-component-v1">
+  <template>
+    <style>
+       :host {
+        -webkit-display: flex;
+        display: flex;
+        line-height: 1.5;        
+      }
+      
+       ::content stats-component-v1:last-of-type {
+        border-right: 1px solid #e1e6ed;
+      }
+    </style>
+    <content></content>
+  </template>
+  <script>
+    Polymer({
+
+      is: 'stats-container-component-v1',
+
+      properties: {
+        name: {
+          type: String,
+          value: 'stats-container-component-v1',
+        },
+      },
+
+    });
+  </script>
+</dom-module>

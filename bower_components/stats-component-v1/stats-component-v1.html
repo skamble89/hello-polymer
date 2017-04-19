@@ -1,0 +1,59 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../font-roboto/roboto.html">
+
+<!--
+`stats-component-v1`
+Stats component
+
+@demo demo/index.html 
+-->
+
+<dom-module id="stats-component-v1">
+  <template>
+    <style>
+       :host {
+        font-family: 'Roboto', 'Noto', sans-serif;
+        flex: 1;
+        flex-basis: 0.000000001px;        
+        border: 1px solid #e1e6ed;
+        border-right: 0;
+        height: 135px;
+      }
+      
+      section {        
+        padding: 10px;
+        text-align: center;
+        cursor: pointer;
+      }
+      
+      .stat-value {
+        font-size: 2em;
+      }
+      
+      .stat-description {
+        font-size: 1.3em;
+        font-weight: 100;
+        margin: 0;
+      }
+    </style>
+    <section class="stat">
+      <span class="stat-value">[[statValue]]</span>
+      <p class="stat-description">[[statDescription]]</p>
+    </section>
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'stats-component-v1',
+
+      properties: {
+        name: {
+          type: String,
+          value: 'stats-component-v1',
+        },
+      },
+
+    });
+  </script>
+</dom-module>

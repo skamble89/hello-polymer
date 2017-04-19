@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+  <title>pill-box demo</title>
+
+  <script src="../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+
+  <link rel="import" href="../bower_components/iron-demo-helpers/demo-pages-shared-styles.html">
+  <link rel="import" href="../bower_components/iron-demo-helpers/demo-snippet.html">
+  <link rel="import" href="../pill-box.html">
+
+  <style is="custom-style" include="demo-pages-shared-styles">
+  </style>
+</head>
+
+<body>
+  <div>
+    <h3>Large pill-box demo</h3>
+    <pill-box selected="female">
+      <paper-radio-button name="male">Male</paper-radio-button>
+      <paper-radio-button name="female">Female</paper-radio-button>
+      <paper-radio-button name="others">Others</paper-radio-button>
+    </pill-box>
+
+    <h3>Small pill-box demo</h3>
+    <pill-box selected="extraordinary" size="small">
+      <paper-radio-button name="good">Good</paper-radio-button>
+      <paper-radio-button name="vgood">Very Good</paper-radio-button>
+      <paper-radio-button name="extraordinary">Extraordinary</paper-radio-button>
+    </pill-box>
+  </div>
+</body>
+
+</html>

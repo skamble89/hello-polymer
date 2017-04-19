@@ -1,0 +1,97 @@
+<link rel="import" href="bower_components/polymer/polymer.html">
+<link rel="import" href="bower_components/paper-radio-button/paper-radio-button.html">
+<link rel="import" href="bower_components/paper-radio-group/paper-radio-group.html">
+<link rel="import" href="pill-box-styles.html">
+
+<!--
+`pill-box`
+pill box selection component
+
+@demo demo/index.html 
+-->
+
+<dom-module id="pill-box">
+  <template>
+    <style>
+       :host {
+        display: block;
+      }
+      
+       :host ::content paper-radio-button {
+        border: 1px solid;
+        border-color: #e0e8ed;
+      }
+      
+       :host[size="small"] ::content paper-radio-button {
+        padding-top: 3px;
+        padding-bottom: 3px;
+      }
+      
+       :host ::content paper-radio-button[checked] {
+        -webkit-box-shadow: 0 0 15px #71b3e1;
+        -moz-box-shadow: 0 0 15px #71b3e1;
+        box-shadow: 0 0 15px #71b3e1;
+        border-color: #71b3e1;
+      }
+      
+       :host ::content paper-radio-button[checked]+paper-radio-button {
+        border-left: 0;
+      }
+    </style>
+    <paper-radio-group selected="{{selected}}">
+      <content select="paper-radio-button"></content>
+    </paper-radio-group>
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'pill-box',
+
+      properties: {
+        name: {
+          type: String,
+          value: 'pill-box',
+        },
+
+        selected: {
+          type: String,
+          reflectToAttribute: true
+        },
+
+        size: {
+          type: String,
+          reflectToAttribute: true,
+          value: 'large',
+          reflectToAttribute: true,
+          observer: '_enumSize'
+        },
+      },
+
+      _enumSize: function (newValue, oldValue) {
+        var validColors = ['small', 'large'];
+        if (validColors.indexOf(newValue) === -1) {
+          // Put the size back, and maybe throw in a line to throw an error
+          this.size = oldValue;
+        }
+      },
+
+      attached: function () {
+        this.querySelectorAll('paper-radio-button')
+          .forEach(function (e) {
+            e.addEventListener('checked-changed', function () {
+              e.noink = true;
+
+              if (this.checked) {
+                this.customStyle['--paper-radio-button-label-color'] = '#464646'
+              } else {
+                delete this.customStyle['--paper-radio-button-label-color'];
+              }
+              this.updateStyles();
+            });
+          });
+      }
+
+    });
+  </script>
+</dom-module>

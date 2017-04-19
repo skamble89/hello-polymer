@@ -1,0 +1,100 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/stats-component-v1/stats-container-component-v1.html">
+<link rel="import" href="../../bower_components/stats-component-v1/stats-component-v1.html">
+<link rel="import" href="../../bower_components/paper-tabs/paper-tabs.html">
+<link rel="import" href="../../bower_components/paper-tabs/paper-tab.html">
+<link rel="import" href="../../bower_components/iron-pages/iron-pages.html">
+<link rel="import" href="../../bower_components/paper-listbox/paper-listbox.html">
+<link rel="import" href="../../bower_components/paper-item/paper-item.html">
+
+<dom-module id="hello-polymer-app">
+  <template>
+    <style>
+       :host {
+        display: block;
+      }
+      
+      paper-tab {
+        color: #5da9dd;
+        --paper-tab-content-unselected: {
+          color: #b3b3b3;
+        }
+        --layout-flex-auto: {
+          flex: 0.1;
+        }
+      }
+      
+      paper-tabs {
+        --paper-tabs-selection-bar-color: #5da9dd
+      }
+    </style>
+
+    <stats-container-component-v1>
+      <stats-component-v1 stat-value="0.2%" stat-description="Coverage across 1 application"></stats-component-v1>
+      <stats-component-v1 stat-value="279 days" stat-description="ETA(based on yesterday)"></stats-component-v1>
+      <stats-component-v1 stat-value="25" stat-description="Concepts significantly impacted"></stats-component-v1>
+    </stats-container-component-v1>
+
+    <paper-tabs selected="{{selected_tab}}">
+      <paper-tab>GLOBAL</paper-tab>
+      <paper-tab>MY LOB</paper-tab>
+      <paper-tab>LOB1</paper-tab>
+      <paper-tab>LOB2</paper-tab>
+      <paper-tab>LOB3</paper-tab>
+    </paper-tabs>
+
+    <iron-pages selected="{{selected_tab}}">
+      <iron-page></iron-page>
+      <iron-page>
+        <paper-listbox>
+          <paper-item>FICO-Score</paper-item>
+          <paper-item>Account-Number</paper-item>
+          <paper-item>Customer-Code</paper-item>
+          <paper-item>Customer-Type</paper-item>
+          <paper-item>Product-Code</paper-item>
+          <paper-item>Product-Name</paper-item>
+          <paper-item>Market-Segment</paper-item>
+          <paper-item>CUSIP</paper-item>
+          <paper-item>Instrument-ID</paper-item>
+          <paper-item>Holding-ID</paper-item>
+          <paper-item>Published-Price</paper-item>
+          <paper-item>Agreement-ID</paper-item>
+          <paper-item>Contract-ID</paper-item>
+          <paper-item>Organization-ID</paper-item>
+          <paper-item>Date of Birth</paper-item>
+          <paper-item>Organization-Name</paper-item>
+          <paper-item>Activity-ID</paper-item>
+          <paper-item>Notional-ID</paper-item>
+          <paper-item>Agent-ID</paper-item>
+          <paper-item>Agency-Name</paper-item>
+          <paper-item>Asset-ID</paper-item>
+          <paper-item>Asset-Type</paper-item>
+        </paper-listbox>
+      </iron-page>
+      <iron-page></iron-page>
+      <iron-page></iron-page>
+      <iron-page></iron-page>
+    </iron-pages>
+
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'hello-polymer-app',
+
+      properties: {
+        name: {
+          type: String,
+          value: 'hello-polymer-app',
+        },
+
+        selected_tab: {
+          type: Number,
+          value: 0,
+        },
+      },
+
+    });
+  </script>
+</dom-module>
