@@ -63,7 +63,8 @@
         border: 1px solid #e1e6ed;
         background: #fcfdff;
         height: 288px;
-        padding: 0;
+        padding-top: 20px;
+        padding-bottom: 0px;
       }
     </style>
 
@@ -73,7 +74,7 @@
       <stats-component-v1 stat-value="25" stat-description="Concepts significantly impacted"></stats-component-v1>
     </stats-container-component-v1>
 
-    <paper-tabs selected="{{selected_tab}}">
+    <paper-tabs selected="{{tab}}">
       <paper-tab>GLOBAL</paper-tab>
       <paper-tab>MY LOB</paper-tab>
       <paper-tab>LOB1</paper-tab>
@@ -81,7 +82,7 @@
       <paper-tab>LOB3</paper-tab>
     </paper-tabs>
 
-    <iron-pages selected="{{selected_tab}}">
+    <iron-pages selected="{{tab}}">
       <iron-page></iron-page>
       <iron-page>
         <paper-listbox class="field-list">
@@ -127,7 +128,7 @@
           value: 'hello-polymer-app',
         },
 
-        selected_tab: {
+        tab: {
           type: Number,
           value: 0,
         },
